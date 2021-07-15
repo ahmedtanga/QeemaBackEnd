@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.qeema.app.test.UserRestControllerTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 24.008 s <<< FAILURE! - in com.qeema.app.test.UserRestControllerTest
+registerAPITest  Time elapsed: 0.063 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<400>
+	at com.qeema.app.test.UserRestControllerTest.registerAPITest(UserRestControllerTest.java:45)
+
+logoutAPITest  Time elapsed: 0.094 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<400>
+	at com.qeema.app.test.UserRestControllerTest.logoutAPITest(UserRestControllerTest.java:64)
+
+getTotalNumberOfUsersAPITest  Time elapsed: 0.055 s  <<< FAILURE!
+java.lang.AssertionError: JSON path "$.totalNoOfUsers" expected:<16> but was:<24>
+	at com.qeema.app.test.UserRestControllerTest.getTotalNumberOfUsersAPITest(UserRestControllerTest.java:71)
+

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: QeemaTask
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Tanga
+Implementation-Vendor-Id: com.example
+Build-Jdk: 1.8.0_102
+Implementation-URL: https://spring.io/projects/spring-boot/QeemaTask
+Created-By: Maven Integration for Eclipse
+
