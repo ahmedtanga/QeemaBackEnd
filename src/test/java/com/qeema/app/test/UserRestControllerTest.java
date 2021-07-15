@@ -6,9 +6,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,16 +26,17 @@ import com.qeema.app.dto.UsersDto;
 import com.qeema.app.entity.UsersEntity;
 
 @RunWith(SpringRunner.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest
-public class UserRestControllerTest {
+class UserRestControllerTest {
 
 	@Autowired
 	private WebApplicationContext webApplicationContext;
 
-	private MockMvc mockMvc;
+	private static MockMvc mockMvc;
 
-	@Before
-	public void setup() {
+	@Autowired
+	void setup() {
 		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
 	}
 
@@ -73,8 +75,8 @@ public class UserRestControllerTest {
 	@Order(4)
 	public void getTotalNumberOfUsersAPITest() throws Exception {
 		mockMvc.perform(get("/user/getTotalNumberOfUsers")).andExpect(status().isOk())
-				.andExpect(content().contentType("application/json")).andExpect(jsonPath("$.totalNoOfUsers").value(2))
-				.andExpect(jsonPath("$.totalNoOfLoggedUsers").value(1));
+				.andExpect(content().contentType("application/json")).andExpect(jsonPath("$.totalNoOfUsers").value(1))
+				.andExpect(jsonPath("$.totalNoOfLoggedUsers").value(0));
 
 	}
 
